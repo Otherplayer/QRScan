@@ -1,16 +1,13 @@
-//
-//  AppDelegate.m
-//  QR code
-//
-//  Created by 斌 on 12-8-2.
-//  Copyright (c) 2012年 斌. All rights reserved.
-//
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "QRCodeGenerator.h"
+#import "QViewController.h"
 
 @implementation AppDelegate
+
+@synthesize window = _window;
+@synthesize viewController = _viewController;
 
 - (void)dealloc
 {
@@ -23,10 +20,15 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
-    self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-    self.window.rootViewController = self.viewController;
+    
+    
+    QViewController *controller = [[QViewController alloc] init];
+    
+    
+    self.window.rootViewController = controller;
     [self.window makeKeyAndVisible];
     return YES;
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
